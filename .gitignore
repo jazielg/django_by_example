@@ -1,0 +1,11 @@
+# Banco de dados SQlite3
+db.sqlite3
+
+# Cache python
+__pycache__/
+
+# Cache PyCharm
+.idea
+
+# VirtualEnv
+my_env/
