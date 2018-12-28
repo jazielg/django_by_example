@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+SITE_ID = 1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'taggit',
     'blog',
+    'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# EMail
+# E-mail
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'jazielgj1995@gmail.com'
 EMAIL_HOST_PASSWORD = '********'
