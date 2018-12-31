@@ -9,3 +9,8 @@ __pycache__/
 
 # VirtualEnv
 my_env/
+
+# Imagens
+.jpg
+.jpeg
+.png
