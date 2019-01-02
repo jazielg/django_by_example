@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'social_django',
     'images',
     'sorl.thumbnail',
+    'actions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,3 +156,10 @@ SOCIAL_AUTH_TWITTER_SECRET = ''  # Twitter Consumer Secret
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ''  # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ''  # Google Consumer Secret
+
+# Canonical URL for users
+from django.urls import reverse_lazy
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
+}
