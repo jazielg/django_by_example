@@ -24,6 +24,12 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match.")
         return cd['password2']
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if User.objects.filter(email=email):
+            raise forms.ValidationError("Email ja existente.")
+        return email
+
 
 class UserEditForm(forms.ModelForm):
     class Meta:
