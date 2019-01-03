@@ -18,6 +18,9 @@
                 <span class="count">
                     <span class="total">{{ total_likes }}</span> like{{ total_likes|pluralize }}
                 </span>
+                <span class="count">
+                    <span>{{ total_views }}</span> view{{ total_views|pluralize }}
+                </span>
                 <a href="#" data-id="{{ image.id }}" data-action="{% if request.user in users_like %}un{% endif %}like"
                    class="like button">
                     {% if request.user not in users_like %}
@@ -30,15 +33,8 @@
             {{ image.description|linebreaks }}
         </div>
 
-        <div class="image-likes">
-            {% for user in image.users_like.all %}
-                <div>
-                    <img src="{{ user.profile.photo.url }}">
-                    <p>{{ user.first_name }}</p>
-                </div>
-            {% empty %}
-                Nobody likes this image yet.
-            {% endfor %}
+        <div class="image-likes" id="user-like">
+            {% include 'images/image/user_like.html' %}
         </div>
     {% endwith %}
 {% endblock %}
@@ -62,6 +58,10 @@
           // update total likes
           var previous_likes = parseInt($('span.count .total').text());
           $('span.count .total').text(previous_action == 'like' ? previous_likes + 1 : previous_likes - 1);
+
+
+            $.get('{% url "images:detail" image.id image.slug %}');
+            $("#user-like").load("#user-like");
         }
       }
     );
