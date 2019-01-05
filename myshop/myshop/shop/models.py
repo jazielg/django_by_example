@@ -40,5 +40,5 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug])
 
-    # def quantity(self):
-    #     return [(i, str(i)) for i in range(1, self.stock + 1)]
+    def quantity(self):
+        return [(i, str(i)) for i in range(1, self.stock + 1)]
