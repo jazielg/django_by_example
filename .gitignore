@@ -9,6 +9,7 @@ __pycache__/
 
 # VirtualEnv
 my_env/
+env_shop/
 
 # Imagens
 *.jpg
