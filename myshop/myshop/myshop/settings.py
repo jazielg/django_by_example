@@ -138,3 +138,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # django-paypal settings
 PAYPAL_RECEIVER_EMAIL = 'paypalaccount@email.com'
 PAYPAL_TEST = True
+
+# capitulo 8: pdf - com o comando "python3 manage.py collectstatic" copia
+# todos os static da aplicação e cola no diretorio definido em STATIC_ROOT
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
