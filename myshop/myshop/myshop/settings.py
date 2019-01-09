@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'parler',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -156,3 +157,16 @@ PAYPAL_TEST = True
 # capitulo 8: pdf - com o comando "python3 manage.py collectstatic" copia
 # todos os static da aplicação e cola no diretorio definido em STATIC_ROOT
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# django-parler
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en', },
+        {'code': 'es', },
+        {'code': 'pt', }
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
