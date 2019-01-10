@@ -10,6 +10,7 @@ __pycache__/
 # VirtualEnv
 my_env/
 env_shop/
+env_elearning/
 
 # Imagens
 *.jpg
