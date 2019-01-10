@@ -171,3 +171,8 @@ PARLER_LANGUAGES = {
         'hide_untranslated': False,
     }
 }
+
+# configurar REDIS para sistema de recomendação
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1

@@ -7,6 +7,7 @@ WeasyPrint==44
 django-rosetta==0.9.0
 django-parler==1.9.2
 django-localflavor==2.1
+redis==3.0.1
 
 # apt
 apt-get install rabbitmq-server
