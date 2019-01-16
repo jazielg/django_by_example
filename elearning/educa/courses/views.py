@@ -12,6 +12,7 @@ from django.views.generic.detail import DetailView
 
 from .forms import ModuleFormSet
 from .models import Course, Module, Content, Subject
+from students.forms import CourseEnrollForm
 
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 
@@ -158,6 +159,7 @@ class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
         return self.render_json_response({'saved': 'OK'})
 
 
+# Listar assuntos e cursos
 class CourseListView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/list.html'
@@ -171,6 +173,12 @@ class CourseListView(TemplateResponseMixin, View):
         return self.render_to_response({'subjects': subjects, 'subject': subject, 'courses': courses})
 
 
+# Detalhes do curso
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial={'course': self.object})
+        return context
