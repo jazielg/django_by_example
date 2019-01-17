@@ -2,3 +2,4 @@ Django==2.1.5
 Pillow==5.4.1
 django-braces==1.13.0
 django-embed-video==1.2.0
+python3-memcached==1.51
